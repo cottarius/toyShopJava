@@ -2,16 +2,13 @@ package service;
 
 import model.Toy;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class DataService {
     String path = "prizeList.txt";
@@ -23,7 +20,9 @@ public class DataService {
         }
         return pq;
     }
-
+    public PriorityQueue<Toy> getQueueList(){
+        return pq;
+    }
     public void startLottery() {
         ArrayList<Toy> winnersList = new ArrayList<>();
         if (pq.size() > 0) {

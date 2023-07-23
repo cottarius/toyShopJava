@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class View {
     Scanner in = new Scanner(System.in);
     public void menu(){
-        System.out.print("1. Добавление игрушек" +
-                "\n2. Розыгрыш игрушек" +
-                "\nВыберите пункт меню: ");
+        System.out.print("""
+                1. Добавление игрушек
+                2. Розыгрыш игрушек
+                3. Изменения частоты выпадания
+                Выберите пункт меню:\s""");
     }
     public String menuAddName(){
         System.out.println("Введите название игрушки: ");

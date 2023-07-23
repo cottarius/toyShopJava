@@ -35,8 +35,11 @@ public class Controller {
                 dataService.addToysToQueue(toy);
             } else if (menuItem == 2){
                 dataService.startLottery();
-            }
-            else {
+            } else if (menuItem == 3){
+                //PriorityQueue pq = dataService.getQueueList();
+                System.out.println("заглушка");
+                break;
+            } else {
                 System.out.println("Программа завершена");
                 break;
             }
