@@ -16,19 +16,28 @@ public class DataService {
     Random random = new Random();
     public PriorityQueue<Toy> addToysToQueue(Toy toy) {
         for (int i = 0; i < toy.getQuantity(); i++) {
-            pq.add(new Toy(toy.getName(), toy.getQuantity(), 100 - random.nextInt(toy.getFrequency())));
+            pq.add(new Toy(toy.getName(), toy.getQuantity(), toy.getFrequency() + random.nextInt(10)));
         }
         return pq;
     }
-    public PriorityQueue<Toy> getQueueList(){
+    public PriorityQueue<Toy> changeFrequency(String name, int frequency){
+        for (Toy toy : pq){
+            if (toy.getName().equals(name)){
+                toy.setFrequency(frequency);
+            }
+        }
         return pq;
     }
     public void startLottery() {
         ArrayList<Toy> winnersList = new ArrayList<>();
         if (pq.size() > 0) {
             for (int i = 0; i < 3; i++) {
-                Toy winToy = pq.poll();
-                winnersList.add(winToy);
+                if(pq.size() > 0) {
+                    Toy winToy = pq.poll();
+                    winnersList.add(winToy);
+                } else {
+                    winnersList.add(null);
+                }
             }
             System.out.printf("Список призов: %s\n", winnersList);
         } else {
@@ -36,7 +45,9 @@ public class DataService {
         }
         try(FileWriter fw = new FileWriter(path, StandardCharsets.UTF_8, false)){
             for(Toy toy : winnersList){
-                fw.write(toy.toString() + "\n");
+                if (toy != null) {
+                    fw.write(toy + "\n");
+                }
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

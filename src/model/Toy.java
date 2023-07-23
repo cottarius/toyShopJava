@@ -39,7 +39,6 @@ public class Toy implements Comparable<Toy>{
         this.frequency = frequency;
     }
 
-
     @Override
     public String toString() {
         return name;
@@ -47,6 +46,8 @@ public class Toy implements Comparable<Toy>{
 
     @Override
     public int compareTo(Toy o) {
-        return Integer.compare(this.frequency, o.frequency);
+        if (this.frequency < o.frequency) return 1;
+        else if (this.frequency > o.frequency) return -1;
+        else return 0;
     }
 }

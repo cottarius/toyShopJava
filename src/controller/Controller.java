@@ -36,9 +36,7 @@ public class Controller {
             } else if (menuItem == 2){
                 dataService.startLottery();
             } else if (menuItem == 3){
-                //PriorityQueue pq = dataService.getQueueList();
-                System.out.println("заглушка");
-                break;
+                dataService.changeFrequency(view.menuInputName(), view.menuChangeFrequency());
             } else {
                 System.out.println("Программа завершена");
                 break;

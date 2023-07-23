@@ -23,4 +23,12 @@ public class View {
         System.out.println("Введите частоту выпадения: ");
         return in.nextInt();
     }
+    public int menuChangeFrequency(){
+        System.out.println("Введите новую частоту выпадения: ");
+        return in.nextInt();
+    }
+    public String menuInputName(){
+        System.out.println("Введите название игрушки для замены частоты выпадения: ");
+        return in.next();
+    }
 }
